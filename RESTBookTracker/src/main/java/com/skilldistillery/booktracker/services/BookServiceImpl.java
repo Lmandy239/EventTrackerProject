@@ -12,10 +12,43 @@ import com.skilldistillery.booktracker.repositories.BookRepository;
 public class BookServiceImpl implements BookService {
 	@Autowired
 	private BookRepository bookRepo;
+
 	@Override
 	public List<Book> findAll() {
-		
+
 		return bookRepo.findAll();
+	}
+
+	@Override
+	public Book findById(int bookId) {
+		return bookRepo.findById(bookId);
+	}
+
+
+	@Override
+	public Book create(Book book) {
+	    return bookRepo.save(book);
+	}
+
+
+	@Override
+	public Book update(Book book, int id) {
+		Book original = bookRepo.findById(id);
+		original.setTitle(book.getTitle());
+		original.setDescription(book.getDescription());
+		
+		return bookRepo.save(original);
+	}
+
+	@Override
+	public boolean deleteById(int bookId) {
+		boolean deleted = false;
+		if (bookRepo.existsById(bookId)) {
+			bookRepo.deleteById(bookId);
+			deleted = true;
+		}
+		return deleted;
+
 	}
 
 }

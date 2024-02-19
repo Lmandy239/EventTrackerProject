@@ -80,7 +80,7 @@ public class BookController {
 		deleted = bookService.deleteById(id);
 		
 		if(deleted) {
-			res.setStatus(200);
+			res.setStatus(204);
 		} res.setStatus(400);
 		return deleted;
 		

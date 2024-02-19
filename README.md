@@ -1,6 +1,6 @@
 # EventTrackerProject
 
-Simple CRUD (Create, Read, Update, Delete) REST API for tracking events. In this case books. Below are the references to the end points:
+Simple CRUD REST API for tracking events. In this case books. Below are the references to the end points:
 
 | HTTP Verb | URI               | Request Body | Response Body | Status Codes |
 |-----------|-------------------|--------------|---------------|---------|

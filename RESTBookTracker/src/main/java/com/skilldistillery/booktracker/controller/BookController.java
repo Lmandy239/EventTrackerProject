@@ -35,7 +35,8 @@ public class BookController {
 		Book book = bookService.findById(bookId);
 		if (book == null) {
 			res.setStatus(404);
-		}
+		} 
+		res.setStatus(200);
 		return book;
 
 	}
@@ -56,6 +57,8 @@ public class BookController {
 		Book created = bookService.create(book);
 		if (created != null) {
 			res.setStatus(201);
+		}else {
+			res.setStatus(400);
 		}
 		return created;
 	}
@@ -63,7 +66,11 @@ public class BookController {
 	@PutMapping("books/{id}")
 	public Book update(@RequestBody Book book, @PathVariable("id") int id, HttpServletResponse res) {
 		Book updated = bookService.update(book, id);
-
+		if (updated != null) {
+			res.setStatus(200);
+		} else {
+			res.setStatus(400);
+		}
 		return updated;
 
 	}
@@ -71,6 +78,10 @@ public class BookController {
 	public boolean delete(@PathVariable("id") int id, HttpServletResponse res) {
 		boolean deleted;
 		deleted = bookService.deleteById(id);
+		
+		if(deleted) {
+			res.setStatus(200);
+		} res.setStatus(400);
 		return deleted;
 		
 	}

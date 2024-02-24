@@ -24,7 +24,7 @@ USE `bookdb` ;
 DROP TABLE IF EXISTS `book` ;
 
 CREATE TABLE IF NOT EXISTS `book` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(45) NOT NULL,
   `description` VARCHAR(500) NULL,
   PRIMARY KEY (`id`))

@@ -61,6 +61,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 START TRANSACTION;
 USE `bookdb`;
 INSERT INTO `book` (`id`, `title`, `description`) VALUES (1, 'RedRising', 'Sci-fi adventure in space');
+INSERT INTO `book` (`id`, `title`, `description`) VALUES (2, 'Golden Son', 'Sci-fi adventure in space');
+INSERT INTO `book` (`id`, `title`, `description`) VALUES (3, 'Morning Star', 'Sci-fi adventure in space');
 
 COMMIT;
 

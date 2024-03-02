@@ -56,6 +56,14 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  lookupBook() {
+    const bookIdInput = document.getElementById('bookIdInput') as HTMLInputElement;
+    const bookId = +bookIdInput.value;
+
+
+    this.getBook(bookId);
+  }
+
   getBook(bookId:number){
     this.bookService.show(bookId).subscribe({
       next: (book) => {

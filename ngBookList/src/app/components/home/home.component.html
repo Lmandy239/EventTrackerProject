@@ -18,11 +18,17 @@
 
   <form name="bookForm" class="d-flex flex-column align-items-center">
       <input type="number" id="bookIdInput" class="form-control mb-2 col-12">
-      <button id="lookupButton" type="button" class="btn btn-primary">Get Book by Id</button>
-  </form>
+      <button id="lookupButton" type="button" class="btn btn-primary" (click)="lookupBook()">Get Book by Id</button>  </form>
 
-  <div class="card p-4 mt-2" id="bookData">
-  </div>
+      <div class="card p-4 mt-2" *ngIf="selected">
+        <p>{{ selected.title }}</p>
+    </div>
+
+  <!-- <div class="card p-4 mt-2" id="bookData" *ngFor="let book of books">
+
+      <p (click)="displayBook(book)">{{ book.title }}</p>
+
+  </div> -->
 
   <form name="deleteForm" class="d-flex flex-column align-items-center mt-2">
       <input type="number" id="bookIdInputDelete" class="form-control mb-2 col-12">

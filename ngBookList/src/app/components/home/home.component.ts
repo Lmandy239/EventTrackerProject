@@ -18,9 +18,10 @@ export class HomeComponent implements OnInit {
   books: Book[] = [];
   title = 'ngBook';
   selected: Book | null = null;
+  searched: Book | null = null;
   newBook: Book = new Book();
   editBook: Book | null = null;
-
+  bookId: number | undefined;
   constructor(
     private bookService: BookService
   ){}
@@ -114,16 +115,25 @@ export class HomeComponent implements OnInit {
   }
 
 
-  deleteBook(bookId: number) {
-    this.bookService.destroy(bookId).subscribe({
-      next: () => {
-        this.reload();
-      },
-      error: (nojoy: any) => {
-        console.error('BookListComponent.deleteBook: error');
-        console.error(nojoy);
-      }
-    });
+
+  deleteBook() {
+    if (this.bookId) {
+      this.bookService.destroy(this.bookId).subscribe({
+        next: () => {
+          alert('Book deleted successfully');
+          location.reload();
+        },
+        error: (nojoy: any) => {
+          console.error('BookListComponent.deleteBook: error');
+          console.error(nojoy);
+        }
+      });
+    } else {
+      console.error('BookListComponent.deleteBook: bookId is undefined');
+    }
   }
+
+
+
 
 }

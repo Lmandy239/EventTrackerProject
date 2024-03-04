@@ -35,8 +35,6 @@ export class BookService {
     }
 
     create(book: Book): Observable<Book> {
-      book.description = '';
-
       return this.http.post<Book>(this.url, book).pipe(
         catchError((err: any) => {
           console.log(err);

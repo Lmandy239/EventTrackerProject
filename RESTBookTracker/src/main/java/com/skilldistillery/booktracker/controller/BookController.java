@@ -78,14 +78,17 @@ public class BookController {
 	}
 	@DeleteMapping("books/{id}")
 	public boolean delete(@PathVariable("id") int id, HttpServletResponse res) {
-		boolean deleted;
-		deleted = bookService.deleteById(id);
-		
-		if(deleted) {
-			res.setStatus(204);
-		} res.setStatus(400);
-		return deleted;
-		
+	    boolean deleted;
+	    deleted = bookService.deleteById(id);
+	    
+	    if (deleted) {
+	        res.setStatus(204); 
+	    } else {
+	        res.setStatus(400); 
+	    }
+
+	    return deleted;
 	}
+
 
 }

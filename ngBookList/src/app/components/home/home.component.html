@@ -17,49 +17,49 @@
   <h1 class="text-center">Welcome to The Book Tracker</h1>
 
   <form name="bookForm" class="d-flex flex-column align-items-center">
-      <input type="number" id="bookIdInput" class="form-control mb-2 col-12">
-      <button id="lookupButton" type="button" class="btn btn-primary" (click)="lookupBook()">Get Book by Id</button>  </form>
+    <label for="title" class="form-label">Id:</label>
+    <input type="number" id="bookIdInput" class="form-control mb-2 col-12">
+    <button id="lookupButton" type="button" class="btn btn-primary" (click)="lookupBook()">Get Book by Id</button>  </form>
 
-      <div class="card p-4 mt-2" *ngIf="selected">
-        <p>{{ selected.title }}</p>
+    <div class="card p-4 mt-2" *ngIf="selected">
+      <label for="title" class="form-label"> Title:</label>
+      <p>{{ selected.title }}</p>
+      <label for="descriptionInput" class="form-label"> Description:</label>
+        <p>{{ selected.description }}</p>
     </div>
 
-  <!-- <div class="card p-4 mt-2" id="bookData" *ngFor="let book of books">
-
-      <p (click)="displayBook(book)">{{ book.title }}</p>
-
-  </div> -->
-
-  <form name="deleteForm" class="d-flex flex-column align-items-center mt-2">
-      <input type="number" id="bookIdInputDelete" class="form-control mb-2 col-12">
-      <button id="deleteButton" type="button" class="btn btn-danger">Delete Book by Id</button>
-  </form>
-  <form name="updateForm" class="d-flex flex-column align-items-center mt-2">
-      <input type="number" id="bookIdInputUpdate" class="form-control mb-2 col-12">
-      <div class="mb-2 col-12">
-          <label for="updateTitle" class="form-label">New Title</label>
-          <input type="text" id="updateTitleInput" class="form-control" required>
-      </div>
-      <div class="mb-2 col-12">
-          <label for="updateDescription" class="form-label">New Description</label>
-          <textarea rows="3" id="updateDescriptionInput" class="form-control" required></textarea>
-      </div>
-      <button id="updateButton" type="button" class="btn btn-warning">Update Book</button>
-  </form>
-
-  <hr class="my-4">
-
-  <div id="addBookDiv" class="mt-2">
-      <form name="addBookForm" class="d-flex flex-column align-items-center">
-          <div class="mb-2 col-12">
-              <label for="title" class="form-label">Title</label>
-              <input type="text" id="titleInput" name="title" class="form-control" required>
-          </div>
-          <div class="mb-2 col-12">
-              <label for="description" class="form-label">Description</label>
-              <textarea rows="3" id="descriptionInput" name="description" class="form-control" required></textarea>
-          </div>
-          <button id="addBookButton" type="button" class="btn btn-success">Add Book</button>
-      </form>
+<div class="card p-4 mt-2" *ngIf="selected">
+<form name="updateForm" class="d-flex flex-column align-items-center mt-2" (ngSubmit)="updateBook(selected)">
+  <div class="mb-2 col-12">
+    <label for="updateTitle" class="form-label">New Title</label>
+    <input type="text" id="updateTitleInput" class="form-control" required [(ngModel)]="selected.title" name="updateTitle">
   </div>
+  <div class="mb-2 col-12">
+    <label for="updateDescription" class="form-label">New Description</label>
+    <textarea rows="3" id="updateDescriptionInput" class="form-control" required [(ngModel)]="selected.description" name="updateDescription"></textarea>
+  </div>
+  <button id="updateButton" type="submit" class="btn btn-warning">Update Book</button>
+</form>
 </div>
+
+<form #bookForm="ngForm" class="d-flex flex-column align-items-center mt-2">
+  <label for="title" class="form-label">Id:</label>
+  <input type="number" id="bookIdInput" name="bookId" class="form-control mb-2 col-12" [(ngModel)]="bookId">
+  <button id="deleteButton" type="button" class="btn btn-danger" (click)="deleteBook()">Delete Book by Id</button>
+</form>
+<hr class="my-4">
+
+<div id="addBookDiv" class="mt-2">
+  <form #bookForm="ngForm" class="d-flex flex-column align-items-center " (ngSubmit)="addBook(newBook)">
+    <div class="mb-2 col-12">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" id="titleInput" name="title" class="form-control" required [(ngModel)]="newBook.title">
+    </div>
+    <div class="mb-2 col-12">
+        <label for="description" class="form-label">Description</label>
+        <textarea rows="3" id="descriptionInput" name="description" class="form-control" required [(ngModel)]="newBook.description"></textarea>
+      </div>
+      <button id="addBookButton" type="submit" class="btn btn-success">Add Book</button>
+    </form>
+  </div>
+

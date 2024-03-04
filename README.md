@@ -8,8 +8,8 @@ Project designed for tracking books, leveraging RESTful APIs and frontend techno
 - Get books by Id which displays the option to update the book
 - Add a book by inserting title and description. An Id will be given to the Book.
 - To find said book you can search the title of the book.
-- Check the radio box to track if the book has been read or not
-End points:
+
+## End points:
 
 | HTTP Verb | URI               | Request Body | Response Body | Status Codes |
 |-----------|-------------------|--------------|---------------|---------|

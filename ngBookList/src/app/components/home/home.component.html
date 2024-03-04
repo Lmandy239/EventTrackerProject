@@ -23,6 +23,8 @@
     <button id="lookupButton" type="button" class="btn btn-primary" (click)="lookupBook()">Get Book by Id</button>  </form>
 
     <div class="card p-4 mt-2" *ngIf="selected">
+      <label for="id" class="form-label"> ID:</label>
+      <p>{{ selected.id }}</p>
       <label for="title" class="form-label"> Title:</label>
       <p>{{ selected.title }}</p>
       <label for="descriptionInput" class="form-label"> Description:</label>

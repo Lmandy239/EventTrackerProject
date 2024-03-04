@@ -1,6 +1,15 @@
 # EventTrackerProject
 
-Simple CRUD REST API for tracking events. In this case books. Below are the references to the end points:
+Project designed for tracking books, leveraging RESTful APIs and frontend technologies such as Angular. It utilizes an existing backend API to construct a user-friendly frontend. 
+
+## Instructions
+- Get Book by Id
+- Delete By Id
+- Get books by Id which displays the option to update the book
+- Add a book by inserting title and description. An Id will be given to the Book.
+- To find said book you can search the title of the book.
+
+## End points:
 
 | HTTP Verb | URI               | Request Body | Response Body | Status Codes |
 |-----------|-------------------|--------------|---------------|---------|
@@ -14,14 +23,21 @@ Simple CRUD REST API for tracking events. In this case books. Below are the refe
 
 ## Technologies Used
 
+- Angular
+- HTTP
+- Components
+- Services
+- Directives
+- JSON
 - Java
 - Spring Boot
 - Hibernate
 - MySQL
-- RESTful API 
+- RESTful API
 
 ## Lessons Learned
-
+- Learned how to configure Angular
+- Asynchronous requests
 - Implementation of CRUD operations in a Spring Boot application.
 - Integration of Hibernate with a MySQL database.
 - Building RESTful APIs.

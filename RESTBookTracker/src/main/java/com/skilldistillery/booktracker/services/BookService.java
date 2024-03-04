@@ -10,5 +10,6 @@ public interface BookService {
     boolean deleteById(int bookId);
     Book create(Book book);
 	Book update(Book book, int id);
+	Book findByTitle(String bookTitle);
 }
 

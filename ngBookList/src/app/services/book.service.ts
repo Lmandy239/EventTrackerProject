@@ -33,6 +33,15 @@ export class BookService {
         })
       );
     }
+    showByTitle(bookTitle: string): Observable<Book> {
+      const apiUrl = `${this.url}/title/${bookTitle}`;
+      return this.http.get<Book>(apiUrl).pipe(
+        catchError((err: any) => {
+          console.log(err);
+          return throwError(() => new Error('BookService.showByTitle(): error'));
+        })
+      );
+    }
 
     create(book: Book): Observable<Book> {
       return this.http.post<Book>(this.url, book).pipe(

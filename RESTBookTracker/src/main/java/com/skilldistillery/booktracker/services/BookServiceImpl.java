@@ -51,4 +51,10 @@ public class BookServiceImpl implements BookService {
 
 	}
 
+	@Override
+	public Book findByTitle(String bookTitle) {
+		
+		return bookRepo.findByTitleIgnoreCase(bookTitle);
+	}
+
 }

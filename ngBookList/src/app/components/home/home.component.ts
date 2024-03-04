@@ -22,6 +22,8 @@ export class HomeComponent implements OnInit {
   newBook: Book = new Book();
   editBook: Book | null = null;
   bookId: number | undefined;
+  bookTitle: string | undefined;
+  searchTerm: string = '';
   constructor(
     private bookService: BookService
   ){}
@@ -76,6 +78,24 @@ export class HomeComponent implements OnInit {
         // this.router.navigateByUrl('bookNotFound');
       }
     });
+  }
+  getBookByTitle(bookTitle: string): void {
+    this.bookService.showByTitle(bookTitle).subscribe({
+      next: (book) => {
+        this.selected = book;
+      },
+      error: (oops) => {
+        console.error('YourComponent.getBookByTitle: error getting book');
+        console.error(oops);
+      }
+    });
+  }
+  onSearch(): void {
+    if (this.searchTerm.trim() !== '') {
+      this.getBookByTitle(this.searchTerm);
+    } else {
+      console.log('Empty search term');
+    }
   }
 
   setEditBook() {

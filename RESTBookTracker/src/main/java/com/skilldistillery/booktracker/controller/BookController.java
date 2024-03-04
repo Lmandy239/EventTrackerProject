@@ -42,6 +42,17 @@ public class BookController {
 		return book;
 
 	}
+	
+	@GetMapping("books/title/{bookTitle}")
+	public Book bookTitle(@PathVariable("bookTitle") String bookTitle, HttpServletResponse res) {
+		Book book = bookService.findByTitle(bookTitle);
+		if (book == null) {
+			res.setStatus(404);
+		} 
+		res.setStatus(200);
+		return book;
+		
+	}
 
 	@PostMapping("books")
 	public void create(@RequestBody String userJson) {
